@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, use_super_parameters, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, use_super_parameters, prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:practical_test/app/theme/app_color.dart';
@@ -122,78 +124,18 @@ class SubscribeScreenView extends GetView<SubscribeScreenController> {
                           ),
                         ),
                         15.h,
-                        Container(
-                          height: 50,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade800,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Text("3 days free + then weekly",
-                                style: TextStyle(
-                                    color: AppColor.white, fontSize: 16)),
-                          ),
-                        ),
+                        thrre_days_free_subscription_text(),
                         15.h,
-                        Container(
-                          height: 50,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade800,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Weekly",
-                                    style: TextStyle(
-                                        color: AppColor.white, fontSize: 16)),
-                                Text("\$8.99/Week",
-                                    style: TextStyle(
-                                        color: AppColor.white, fontSize: 16)),
-                              ],
-                            ),
-                          ),
-                        ),
+                        weekly_subscription_text(),
                         15.h,
-                        Container(
-                          height: 50,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade800,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Yearly",
-                                    style: TextStyle(
-                                        color: AppColor.white, fontSize: 16)),
-                                Text("\$49.99/Year",
-                                    style: TextStyle(
-                                        color: AppColor.white, fontSize: 16)),
-                              ],
-                            ),
-                          ),
-                        ),
+                        yearly_subscription_text(),
                       ],
                     ),
                   ),
                 ),
                 15.h,
                 Spacer(),
-                CommonElevatedButton(
-                    width: double.infinity,
-                    height: 50,
-                    borderRadius: BorderRadius.circular(10),
-                    onPressed: () {},
-                    child: Text(
-                      "Subscribe",
-                      style: TextStyle(color: AppColor.white, fontSize: 16),
-                    )),
+                subscribe_button(),
                 15.h,
                 Text(
                   "Restore Purchase",
@@ -203,5 +145,73 @@ class SubscribeScreenView extends GetView<SubscribeScreenController> {
             ),
           )),
     );
+  }
+
+  Widget thrre_days_free_subscription_text() {
+    return Container(
+      height: 50,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          color: Colors.grey.shade800, borderRadius: BorderRadius.circular(10)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text("3 days free + then weekly",
+            style: TextStyle(color: AppColor.white, fontSize: 16)),
+      ),
+    );
+  }
+
+  Widget weekly_subscription_text() {
+    return Container(
+      height: 50,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          color: Colors.grey.shade800, borderRadius: BorderRadius.circular(10)),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Weekly",
+                style: TextStyle(color: AppColor.white, fontSize: 16)),
+            Text("\$8.99/Week",
+                style: TextStyle(color: AppColor.white, fontSize: 16)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget yearly_subscription_text() {
+    return Container(
+      height: 50,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          color: Colors.grey.shade800, borderRadius: BorderRadius.circular(10)),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Yearly",
+                style: TextStyle(color: AppColor.white, fontSize: 16)),
+            Text("\$49.99/Year",
+                style: TextStyle(color: AppColor.white, fontSize: 16)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget subscribe_button() {
+    return CommonElevatedButton(
+        width: double.infinity,
+        height: 50,
+        borderRadius: BorderRadius.circular(10),
+        onPressed: () {},
+        child: Text(
+          "Subscribe",
+          style: TextStyle(color: AppColor.white, fontSize: 16),
+        ));
   }
 }
